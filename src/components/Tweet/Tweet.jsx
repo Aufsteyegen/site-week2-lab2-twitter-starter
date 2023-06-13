@@ -2,17 +2,21 @@ import AvatarIcon from "../AvatarIcon/AvatarIcon"
 import { formatLikes } from "../../utils/format"
 import "./Tweet.css"
 
-export default function Tweet({ tweet }) {
+export default function Tweet(props) {
   return (
-    <div className="tweet" data-tweet-id={null}>
+    <div className="tweet" data-tweet-id={props.tweet.id}>
       <div className="tweet-avatar">
         <AvatarIcon />
       </div>
 
       <div className="tweet-content">
-        <TweetUserInfo />
-        <p className="tweet-text"></p>
-        <TweetFooter />
+        <TweetUserInfo name={props.userProfile.name} handle={props.userProfile.handle}/>
+        <p className="tweet-text">
+            {props.tweet.text}
+        </p>
+        <TweetFooter numComments={props.tweet.comments} 
+                     numRetweets={props.tweet.retweets}
+                     numLikes={props.tweet.likes} />
       </div>
     </div>
   )

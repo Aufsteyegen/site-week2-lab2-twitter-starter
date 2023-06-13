@@ -90,3 +90,11 @@
   margin-top: 5px;
   font-size: 20px;
 }
+
+.invalid-tweet {
+    color: red;
+}
+
+.valid-tweet {
+    color: black;
+}
